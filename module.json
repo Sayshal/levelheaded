@@ -1,0 +1,39 @@
+{
+  "authors": [
+    {
+      "discord": "Tyler",
+      "flags": {},
+      "name": "Tyler",
+      "url": "https://github.com/Sayshal"
+    }
+  ],
+  "bugs": "https://github.com/Sayshal/levelheaded/issues",
+  "changelog": "https://github.com/Sayshal/levelheaded/releases",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14"
+  },
+  "description": "",
+  "download": "",
+  "esmodules": ["levelheaded.mjs"],
+  "flags": {
+    "hotReload": {
+      "extensions": ["css", "html", "hbs", "json"],
+      "paths": ["styles", "templates", "lang"]
+    }
+  },
+  "id": "levelheaded",
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "manifest": "https://github.com/Sayshal/levelheaded/releases/latest/download/module.json",
+  "readme": "https://github.com/Sayshal/levelheaded?tab=readme-ov-file",
+  "styles": ["styles/levelheaded.css"],
+  "title": "Levelheaded",
+  "url": "https://github.com/Sayshal/levelheaded",
+  "version": ""
+}
