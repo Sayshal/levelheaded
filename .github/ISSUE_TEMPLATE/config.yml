@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
   - name: Report a bug or suggest a feature
-    url: https://3deathsaves.com/report
+    url: https://3deathsaves.com/report?module=levelheaded
     about: Reports go through 3deathsaves.com so we get the troubleshooter details and can follow up with you on Discord.
