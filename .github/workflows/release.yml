@@ -123,6 +123,7 @@ jobs:
       # Release to Foundry Package API (free modules only; premium uploads stay manual)
       - name: Release Foundry Package
         if: env.PREMIUM != 'true'
+        continue-on-error: true
         env:
           FOUNDRY_API_TOKEN: ${{ secrets.FOUNDRY_API_TOKEN }}
         run: |
