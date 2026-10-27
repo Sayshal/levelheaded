@@ -41,6 +41,8 @@ Core Scene Levels gives you floors, and Levelheaded handles the chores around th
 - **Per-Level Environment:** Give a level its own darkness, global light and weather in Level Config.
 - **Bulk Level Tools:** Assign, copy or move selected walls, lights, tiles and other placeables between levels.
 
+<img src="https://wiki.3deathsaves.com/levelheaded/bulk-level-tools.png" alt="Bulk Level Tools" width="750">
+
 ---
 
 ## Installation
