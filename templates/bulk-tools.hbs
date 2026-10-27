@@ -1,0 +1,58 @@
+<div>
+  <fieldset>
+    <legend>{{selectionLegend}}</legend>
+    {{#unless documentName}}
+      <p class="hint">{{localize "LEVELHEADED.Bulk.NoLayer"}}</p>
+    {{/unless}}
+    {{formGroup levelsField name="levels" value=selectedLevels rootId=rootId input=inputs.createMultiSelectInput options=selectableLevels label="LEVELHEADED.Bulk.Levels.Name" hint="" localize=true}}
+    <div class="form-group">
+      <label for="{{rootId}}-allLevels">{{localize "LEVELHEADED.Bulk.AllLevels.Name"}}</label>
+      <div class="form-fields">
+        <input type="checkbox" name="allLevels" id="{{rootId}}-allLevels" />
+      </div>
+    </div>
+    <p class="hint">{{localize "LEVELHEADED.Bulk.SetLevels.Hint"}}</p>
+    <div class="form-footer">
+      <button type="button" data-action="assign" {{#unless hasSelection}}disabled{{/unless}}><i
+          class="fa-solid fa-equals" inert></i><span>{{localize "LEVELHEADED.Bulk.Assign"}}</span></button>
+      <button type="button" data-action="include" {{#unless hasSelection}}disabled{{/unless}}><i
+          class="fa-solid fa-plus" inert></i><span>{{localize "LEVELHEADED.Bulk.Include"}}</span></button>
+      <button type="button" data-action="exclude" {{#unless hasSelection}}disabled{{/unless}}><i
+          class="fa-solid fa-minus" inert></i><span>{{localize "LEVELHEADED.Bulk.Exclude"}}</span></button>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>{{localize "LEVELHEADED.Bulk.ToLevel"}}</legend>
+    <div class="form-group">
+      <label for="{{rootId}}-target">{{localize "LEVELHEADED.Bulk.Target"}}</label>
+      <div class="form-fields">
+        <select name="target" id="{{rootId}}-target">
+          {{selectOptions selectableLevels selected=target valueAttr="value" labelAttr="label"}}
+        </select>
+      </div>
+    </div>
+    <p class="hint">{{localize "LEVELHEADED.Bulk.Transfer.Hint"}}</p>
+    <div class="form-footer">
+      <button type="button" data-action="copy" {{#unless hasSelection}}disabled{{/unless}}><i class="fa-solid fa-copy"
+          inert></i><span>{{localize "LEVELHEADED.Bulk.Copy"}}</span></button>
+      <button type="button" data-action="move" {{#unless hasSelection}}disabled{{/unless}}><i
+          class="fa-solid fa-arrow-right-to-bracket"
+          inert></i><span>{{localize "LEVELHEADED.Bulk.Move"}}</span></button>
+      <button type="button" data-action="paste" {{#unless canPaste}}disabled{{/unless}}><i class="fa-solid fa-paste"
+          inert></i><span>{{localize "LEVELHEADED.Bulk.Paste"}}</span></button>
+    </div>
+  </fieldset>
+  {{#if nullWalls}}
+    <fieldset>
+      <legend>{{localize "LEVELHEADED.Bulk.Repair"}}</legend>
+      <div class="form-group">
+        <label>{{localize "LEVELHEADED.Bulk.NullWalls" count=nullWalls}}</label>
+        <div class="form-fields">
+          <button type="button" data-action="repairWalls"><i class="fa-solid fa-screwdriver-wrench"
+              inert></i><span>{{localize "LEVELHEADED.Bulk.RepairWalls"}}</span></button>
+        </div>
+        <p class="hint">{{localize "LEVELHEADED.Bulk.NullWallsHint"}}</p>
+      </div>
+    </fieldset>
+  {{/if}}
+</div>

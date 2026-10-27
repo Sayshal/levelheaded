@@ -13,25 +13,32 @@
     "minimum": "14",
     "verified": "14"
   },
-  "description": "",
+  "description": "Core Scene Levels gives you floors, and Levelheaded handles the chores around them. Build a stack of floors in one go, or merge separate maps into one scene as levels. The Level Doctor checks a scene for missing floors and tokens left on the wrong level, then fixes what it can. Tokens follow their elevation to the right level, and stairs move players up and down without a dialog.",
+  "documentTypes": {
+    "RegionBehavior": {
+      "silentChangeLevel": {}
+    }
+  },
   "download": "",
   "esmodules": ["levelheaded.mjs"],
   "flags": {
     "hotReload": {
       "extensions": ["css", "html", "hbs", "json"],
-      "paths": ["styles", "templates", "lang"]
+      "paths": ["styles", "templates"]
     }
   },
   "id": "levelheaded",
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json"
-    }
-  ],
+  "license": "https://github.com/Sayshal/levelheaded?tab=MIT-1-ov-file",
   "manifest": "https://github.com/Sayshal/levelheaded/releases/latest/download/module.json",
   "readme": "https://github.com/Sayshal/levelheaded?tab=readme-ov-file",
+  "relationships": {
+    "requires": [
+      {
+        "id": "3ds-atlas",
+        "type": "module"
+      }
+    ]
+  },
   "styles": ["styles/levelheaded.css"],
   "title": "Levelheaded",
   "url": "https://github.com/Sayshal/levelheaded",
