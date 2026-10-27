@@ -1,3 +1,12 @@
+**Beta test.** Install with this manifest URL:
+```
+https://github.com/Sayshal/levelheaded/releases/latest/download/module.json
+```
+
 ## New Features
 
-- Initial release.
+- Level Doctor audits a scene's levels, groups issues by severity, and fixes the ones it can, one at a time or all at once.
+- Connect Levels tool turns selected regions into a stair between two levels or an elevator that stops at every level between.
+- Merge Scenes as Levels stacks other scenes onto a scene as new levels, copying their placeables.
+- Surface Template tool applies a roof, balcony, trapdoor or vision and fade pair to selected regions.
+- Tokens that change elevation move to the level covering that elevation.

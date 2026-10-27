@@ -1,0 +1,20 @@
+<div>
+  {{#each groups}}
+    <fieldset>
+      <legend>{{legend}}</legend>
+      {{#each issues}}
+        <div class="form-group">
+          <label>{{title}}</label>
+          {{#if fixLabel}}
+            <div class="form-fields">
+              <button type="button" data-action="fix" data-index="{{index}}">{{fixLabel}}</button>
+            </div>
+          {{/if}}
+          <p class="hint">{{hint}}</p>
+        </div>
+      {{/each}}
+    </fieldset>
+  {{else}}
+    <p class="hint all-clear">{{localize "LEVELHEADED.Doctor.AllClear"}}</p>
+  {{/each}}
+</div>
