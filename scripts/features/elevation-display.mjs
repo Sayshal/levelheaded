@@ -5,6 +5,9 @@ const DIM_ALPHA = 0.5;
 
 /** Absolute elevation readout, and dimmed or hidden labels for tokens on other levels. */
 export class ElevationDisplay {
+  /** @type {{mode: string, gmSeesAll: boolean, readout: string}|null} Label settings read on every token refresh, cleared when one changes. */
+  static #settings = null;
+
   /**
    * Wrap the tooltip text and wire the token refresh hook.
    * @returns {void}
@@ -15,6 +18,27 @@ export class ElevationDisplay {
   }
 
   /**
+   * Cached label settings.
+   * @returns {{mode: string, gmSeesAll: boolean, readout: string}} The settings
+   */
+  static get #config() {
+    ElevationDisplay.#settings ??= {
+      mode: game.settings.get(MODULE.ID, MODULE.SETTINGS.LABELS_ON_OTHER_LEVELS),
+      gmSeesAll: game.settings.get(MODULE.ID, MODULE.SETTINGS.SHOW_GMS_EVERY_LABEL),
+      readout: game.settings.get(MODULE.ID, MODULE.SETTINGS.ELEVATION_READOUT)
+    };
+    return ElevationDisplay.#settings;
+  }
+
+  /**
+   * Forget the cached label settings after one changes.
+   * @returns {void}
+   */
+  static resetSettings() {
+    ElevationDisplay.#settings = null;
+  }
+
+  /**
    * Show the token's absolute elevation in its tooltip when the readout is set to absolute.
    * @returns {void}
    */
@@ -22,7 +46,7 @@ export class ElevationDisplay {
     const Token = foundry.canvas.placeables.Token;
     const getTooltipText = Token.prototype._getTooltipText;
     Token.prototype._getTooltipText = function () {
-      if (game.settings.get(MODULE.ID, MODULE.SETTINGS.ELEVATION_READOUT) !== 'absolute') return getTooltipText.call(this);
+      if (ElevationDisplay.#config.readout !== 'absolute') return getTooltipText.call(this);
       const elevation = this.document.elevation.toNearest(0.01);
       if (!Number.isFinite(elevation) || elevation === 0) return '';
       return `${elevation} ${canvas.grid.units}`.trim();
@@ -37,8 +61,8 @@ export class ElevationDisplay {
    */
   static #onRefreshToken(token, flags) {
     if (!canvas.level || !(flags.refreshState || flags.refreshBars)) return;
-    const mode = game.settings.get(MODULE.ID, MODULE.SETTINGS.LABELS_ON_OTHER_LEVELS);
-    const exempt = game.user.isGM && game.settings.get(MODULE.ID, MODULE.SETTINGS.SHOW_GMS_EVERY_LABEL);
+    const { mode, gmSeesAll } = ElevationDisplay.#config;
+    const exempt = game.user.isGM && gmSeesAll;
     const applies = mode !== 'show' && !exempt && token.document.level !== canvas.level.id;
     const alpha = applies && mode === 'dim' ? DIM_ALPHA : 1;
     for (const label of [token.nameplate, token.tooltip, token.bars]) {

@@ -1,4 +1,5 @@
 import { MODULE } from './constants.mjs';
+import { ElevationDisplay } from './features/elevation-display.mjs';
 import { Occlusion } from './features/occlusion.mjs';
 
 const { BooleanField, NumberField, SetField, StringField } = foundry.data.fields;
@@ -8,6 +9,7 @@ const { BooleanField, NumberField, SetField, StringField } = foundry.data.fields
  * @returns {void}
  */
 function refreshTokenLabels() {
+  ElevationDisplay.resetSettings();
   for (const token of canvas.tokens?.placeables ?? []) token.renderFlags.set({ refreshState: true, refreshTooltip: true });
 }
 
