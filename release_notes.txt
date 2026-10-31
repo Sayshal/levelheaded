@@ -1,33 +1,7 @@
-## New Features
+## Changes
 
-- A player's view switches level when their character, or their only token, changes level; controlled by a world setting.
-- Bulk Level Tools copy or move placeables to another level, or paste the layer clipboard in place on it, with elevation shifted to match, and repair walls with no level.
-- Bulk Level Tools window in the walls, lighting, sounds, tiles, drawings, notes and regions controls assigns, adds or removes levels on selected placeables.
-- Change Level (Silent) region behavior moves tokens to the other level, the next level above or below, or a chosen level without a prompt, with a landing offset, camera follow and movement action filter.
-- Connect Levels tool in the Regions controls turns selected regions into a silent stair between two levels or an elevator that stops at every level between.
-- GMs can keep their current view when selecting a token on another level, via a client setting.
-- Hide Levels Above toggle in the token controls fades the surfaces above the GM's viewed level.
-- Keybindings for View Level Above, View Level Below and Hide Levels Above.
-- Land At select (Floor, Same Height, Same Elevation) in the Token HUD level palette also applies to the Placeables "Change Level" context menu entry.
-- Level Config gains per-level darkness, global light and weather overrides, applied while that level is viewed.
-- Level Doctor checks for scenes with no levels or a single level, level elevation gaps, overlaps and off-grid bounds, missing floor surfaces, surface regions missing affected levels, flat floor regions, and one-way level visibility.
-- Level Doctor finds tokens on a missing level or outside their level's elevation range and moves them to the level matching their elevation, or clamps them into their own level.
-- Level Doctor flags walls, lights and tiles with no level, Change Level regions limited to one level, teleport destinations without a single level, tiles using Fade occlusion, top-level roofs without Reveal Elevated Surface, light restriction mismatches, level images with the wrong size, opaque images on levels that show lower levels, and foreground-only levels.
-- Level Doctor window, opened from the token controls or the Scenes directory and scene navigation context menus, audits a scene's levels and groups issues into Problems, Warnings and Notes with a fix button on each issue it can repair, Fix All and Revalidate Scene.
-- Levelheaded: Create Floor Stack row in the scene Levels tab opens Floor Stack, which adds several stacked levels of equal height with optional floor surfaces, adjacent floor visibility and culling.
-- Merge Scenes as Levels option in the Scenes directory and scene navigation context menus stacks other scenes onto a scene as new levels, copying their placeables and tokens, with optional floor surfaces, adjacent floor visibility, culling and an Allow Different Dimensions override.
-- New levels created directly above another level get a floor surface automatically; controlled by a world setting.
-- New tokens land on the viewed level, or on the level matching their elevation when one is set.
-- Pull To Level entry in the players list context menu sends a user to the GM's viewed level.
-- Roof surfaces under the mouse fade out after a configurable hover delay, and a separate setting sets the tile hover fade delay.
-- Scene navigation level list scrolls one level per wheel tick and gains a compact toggle that shows only the viewed level.
-- Separate GM and player settings choose which token groups (controlled, owned, hovered, highlighted, visible) fade roofs and overhead tiles.
-- Surface Template tool in the Regions controls applies a Roof, Balcony, Trapdoor or Vision and Fade template to selected regions on a chosen level.
-- Token elevation tooltip can show elevation relative to the viewed level or the actual elevation, per client.
-- Token names, tooltips and bars on other levels can be shown, dimmed or hidden, with an option to exempt GMs.
-- Tokens that change elevation move to the level covering that elevation, with a dialog to pick when levels overlap; controlled by a world setting and a per-scene toggle in the Levels tab.
-- Trapdoor templates cut a hole in the other floor surfaces on their level, and an Open or Close Trapdoor button in the Regions controls toggles selected trapdoors.
+- Token label and elevation readout settings are cached instead of read on every token refresh.
 
 ## Documentation
 
-- Add README with feature overview, screenshots, installation steps and manifest URL.
+- Added a Bulk Level Tools screenshot to the README.
