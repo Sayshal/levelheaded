@@ -98,6 +98,6 @@ export class SceneMergeApp extends HandlebarsApplicationMixin(ApplicationV2) {
     const mismatched = sources.filter((source) => !sameDimensions(source, this.scene));
     if (mismatched.length && !allowMismatch) throw new Error(_loc('LEVELHEADED.Merge.Mismatched', { scenes: mismatched.map((scene) => scene.name).join(', ') }));
     await mergeScenes(this.scene, sources, { height, ...options });
-    ui.notifications.info(_loc('LEVELHEADED.Merge.Done', { count: sources.length, scene: this.scene.name }));
+    ui.notifications.info(_loc(`LEVELHEADED.Merge.Done.${game.i18n.pluralRules.select(sources.length)}`, { count: sources.length, scene: this.scene.name }));
   }
 }

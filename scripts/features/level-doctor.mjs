@@ -45,6 +45,15 @@ function boundaries(scene) {
 }
 
 /**
+ * A readable label for a tile: its name, else its image file name, else its id.
+ * @param {TileDocument} tile The tile
+ * @returns {string} The label
+ */
+function tileLabel(tile) {
+  return tile.name || decodeURIComponent(tile.texture.src?.split('/').pop() ?? '') || tile.id;
+}
+
+/**
  * The enabled behaviors of a region with one of the given types.
  * @param {RegionDocument} region The region
  * @param {string[]} types Behavior types
@@ -240,7 +249,7 @@ const CHECKS = [
      * @returns {DoctorIssue[]} Issues found
      */
     run(scene) {
-      const issues = scene.tiles.filter((tile) => tile.occlusion.modes.has(CONST.OCCLUSION_MODES.FADE)).map((tile) => issue('RoofFade', 'info', { tile: tile.name || tile.id }));
+      const issues = scene.tiles.filter((tile) => tile.occlusion.modes.has(CONST.OCCLUSION_MODES.FADE)).map((tile) => issue('RoofFade', 'info', { tile: tileLabel(tile) }));
       const top = stackedLevels(scene).at(-1);
       if (!top || !isMultiLevel(scene)) return issues;
       for (const region of scene.regions) {
@@ -266,7 +275,7 @@ const CHECKS = [
       const lightSurfaces = scene.getSurfaces({ type: 'light' });
       for (const tile of scene.tiles) {
         const surfaces = lightSurfaces.filter((surface) => surface.elevation === tile.elevation);
-        const name = tile.name || tile.id;
+        const name = tileLabel(tile);
         if (tile.restrictions.light && !surfaces.length) issues.push(issue('RestrictLightTile', 'warning', { tile: name }));
         else if (!tile.restrictions.light && surfaces.length && tile.texture.src) {
           issues.push(issue('RestrictLightRegion', 'warning', { tile: name, region: surfaces[0].region.name }, () => tile.update({ 'restrictions.light': true })));
