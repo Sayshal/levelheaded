@@ -1,7 +1,9 @@
+## Bug Fixes
+
+- Changing a token's level from the Token HUD level palette or token tab context menu now moves it to the target level with Land At "Floor" or "Same Height" instead of stopping partway at floor surfaces.
+- Floor Stack's default starting elevation stays at the top of the existing levels instead of snapping to the grid.
+- The scene merge notice uses the correct singular or plural wording for the number of merged scenes.
+
 ## Changes
 
-- Token label and elevation readout settings are cached instead of read on every token refresh.
-
-## Documentation
-
-- Added a Bulk Level Tools screenshot to the README.
+- Level Doctor labels unnamed tiles by their image file name instead of their ID.
