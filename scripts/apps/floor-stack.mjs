@@ -66,7 +66,7 @@ export class FloorStackApp extends HandlebarsApplicationMixin(ApplicationV2) {
       fields: [
         { field: count },
         { field: height, value: distance * 2, units, min: distance, step: distance },
-        { field: base, value: top ?? 0, units, step: distance },
+        { field: base, value: top ?? 0, units },
         { field: name, value: _loc('LEVELHEADED.FloorStack.DefaultName') },
         { field: surfaces },
         { field: visible },

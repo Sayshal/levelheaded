@@ -71,7 +71,10 @@ export function moveTokensToLevel(scene, tokens, level, mode) {
   for (const token of tokens) {
     if (token._source.level === level.id) continue;
     const origin = scene.levels.get(token._source.level);
-    instructions[token.id] = { destination: { level: level.id, elevation: landingElevation(token.elevation, origin, level, mode) } };
+    instructions[token.id] = {
+      destination: { level: level.id, elevation: landingElevation(token.elevation, origin, level, mode) },
+      constrainOptions: { ignoreWalls: true, ignoreCost: true }
+    };
   }
   return scene.moveTokens(instructions, { pan: { duration: 0 }, animate: false });
 }

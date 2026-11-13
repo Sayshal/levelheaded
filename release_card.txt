@@ -1,4 +1,3 @@
-**Beta test.** Install with this manifest URL:
-```
-https://github.com/Sayshal/levelheaded/releases/latest/download/module.json
-```
+## Bug Fixes
+
+- 3 bugs squashed
