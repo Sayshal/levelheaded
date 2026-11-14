@@ -28,7 +28,7 @@ Core Scene Levels gives you floors, and Levelheaded handles the chores around th
 
 **Stairs & Templates:** Turn selected regions into stairs or an elevator with one tool. Stairs move tokens between levels without core's confirmation dialog, with an optional landing offset. Region templates set up roofs, balconies, trapdoors you can open and close, and vision-and-fade pairs.
 
-<img src="https://wiki.3deathsaves.com/levelheaded/make-stair.png" alt="Make Stair" width="750">
+<img src="https://wiki.3deathsaves.com/levelheaded/make-stair.png" alt="Connect Levels" width="750">
 
 ---
 
